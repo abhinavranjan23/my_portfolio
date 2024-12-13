@@ -24,7 +24,7 @@ const Navbar = () => {
           <img
             src={require("../logo.png")}
             alt='Logo'
-            className={`h-12 sm:h-20 lg:ml-40 drop-shadow-md mr-auto transition-shadow duration-300 filter ${
+            className={`h-12 sm:h-20 lg:ml-40 mr-auto transition-shadow duration-300 filter ${
               !nightMode
                 ? "drop-shadow-md"
                 : "drop-shadow-[2px_2px_2px_rgba(255,255,255,1)]"
@@ -54,12 +54,14 @@ const Navbar = () => {
               <span className='absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gray-700 group-hover:w-full transition-all duration-300'></span>
             </li>
           </ul>
-          <span onClick={handleHamBurger}>
-            <img
-              src={require("../menu.png")}
-              alt='Logo'
-              className='h-7 lg:hidden  mr-5'
-            />
+          <span
+            onClick={handleHamBurger}
+            aria-label='Toggle menu'
+            role='button'
+            tabIndex='0'
+            className='lg:hidden'
+          >
+            <img src={require("../menu.png")} alt='Logo' className='h-7 mr-5' />
           </span>
           <button onClick={handleNightMode} className='w-8 h-8  ml-auto'>
             {!nightMode ? (
