@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import Navbar from "./Navbar";
+import "./App.css";
+import Navbar from "./Components/Navbar";
 import reportWebVitals from "./reportWebVitals";
-import Body from "./Body";
+import Body from "./Components/Body";
+import NightModeContext from "./utils/NightModeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const App = () => {
+  const [nightMode, setNightMode] = useState(false);
+  return (
+    <div>
+      <NightModeContext.Provider value={{ nightMode, setNightMode }}>
+        <Navbar />
+        <Body />
+      </NightModeContext.Provider>
+    </div>
+  );
+};
 root.render(
   <React.StrictMode>
-    <Navbar />
-    <Body />
+    <App />
   </React.StrictMode>
 );
 

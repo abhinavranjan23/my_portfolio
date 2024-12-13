@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .mask-image {
+    -webkit-mask-image: url("../src/images/bgimage.png");
+    -webkit-mask-size: cover;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url("../src/images/bgimage.png");
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat;
+  }
+}
