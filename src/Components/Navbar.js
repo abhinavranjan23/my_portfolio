@@ -24,10 +24,10 @@ const Navbar = () => {
           <img
             src={require("../logo.png")}
             alt='Logo'
-            className={`h-12 sm:h-20 lg:ml-40 drop-shadow-md mr-auto transition-shadow duration-300 ${
+            className={`h-12 sm:h-20 lg:ml-40 drop-shadow-md mr-auto transition-shadow duration-300 filter ${
               !nightMode
                 ? "drop-shadow-md"
-                : "drop-shadow-[0_2px_2px_rgba(255,255,255,400)]"
+                : "drop-shadow-[2px_2px_2px_rgba(255,255,255,1)]"
             }`}
           />
         </div>
