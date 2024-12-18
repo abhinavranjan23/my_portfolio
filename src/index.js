@@ -5,6 +5,9 @@ import Navbar from "./Components/Navbar";
 import reportWebVitals from "./reportWebVitals";
 import Body from "./Components/Body";
 import NightModeContext from "./utils/NightModeContext";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
+import Projects from "./Components/Projects";
+import Contact from "./Components/Contact";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -14,14 +17,34 @@ const App = () => {
     <div>
       <NightModeContext.Provider value={{ nightMode, setNightMode }}>
         <Navbar />
-        <Body />
+        <Outlet />
       </NightModeContext.Provider>
     </div>
   );
 };
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/projects",
+        element: <Projects />,
+      },
+    ],
+  },
+]);
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={appRouter} />
   </React.StrictMode>
 );
 
