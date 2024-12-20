@@ -26,10 +26,10 @@ const skills = [
 
 const Skill = () => {
   return (
-    <div className='box-border flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-20 p-6 md:w-[180vh] bg-opacity-85 backdrop-blur-lg bg-slate-500 md:ml-16 backdrop-saturate-150  group mx-4 rounded-lg mb-10'>
+    <div className='box-border flex flex-col lg:flex-row items-center justify-center  lg:items-start  gap-10 lg:gap-20 p-6 sm:w-[90vw] lg:w-[90vw] bg-opacity-85 backdrop-blur-lg bg-slate-500 lg:mx-16 backdrop-saturate-150  group mx-4 rounded-lg mb-10'>
       {/* Left Content */}
-      <div className='flex flex-1 md:flex-none lg:text-center text-center md:mt-[9%] bg-emerald-500 mb-4 md:ml-40 shadow-md group-hover:shadow-slate-200 rounded-md p-2  shadow-neutral-800 group-hover:scale-110'>
-        <span className='text-3xl font-bold'>My Skills</span>
+      <div className='flex flex-1 md:flex-none sm:text-center items-center justify-center  bg-emerald-500 mb-4  shadow-md group-hover:shadow-slate-200 rounded-md p-2  shadow-neutral-800 group-hover:scale-110 lg:mt-[100px]'>
+        <p className='text-3xl font-bold text-center'>My Skills</p>
       </div>
 
       {/* Right Skills Section */}
@@ -53,22 +53,23 @@ const Skill = () => {
       </div>
       {skills.map((skill, index) => (
         <div
+          key={index}
           data-popover
           id={`popover-default-${skill.name}`}
           role='tooltip'
-          class='absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800'
+          className='absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 '
         >
-          <div class='px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700'>
-            <h3 class='font-semibold text-gray-900 dark:text-white'>
+          <div className='px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700'>
+            <h3 className='font-semibold text-gray-900 dark:text-white'>
               {`${skill.name}`}
             </h3>
           </div>
-          <div class='px-3 py-2'>
+          <div className='px-3 py-2'>
             <div
-              class={`w-full bg-${skill.color} rounded-full h-2.5 mb-4 dark:bg-gray-700 `}
+              className={`w-full bg-${skill.color} rounded-full h-2.5 mb-4 dark:bg-gray-700 `}
             >
               <div
-                class={`bg-${skill.color} h-2.5 rounded-full `}
+                className={`bg-${skill.color} h-2.5 rounded-full `}
                 style={{ width: `${skill.width}` }}
               ></div>
             </div>

@@ -5,7 +5,7 @@ const Sidebar = (props) => {
   const { isMenuOpen, setIsMenuOpen } = props;
   return (
     <div
-      className={`fixed top-0 right-0  h-full w-60 border-l border-zinc-300 shadow-lg shadow-slate-300 bg-slate-200 transform transition-transform duration-400 ease-in-out z-[9999999] ${
+      className={`fixed top-0 right-0  h-full w-60 border-l border-zinc-300 shadow-lg shadow-slate-300 bg-slate-200 transform transition-transform duration-[5000] ease-in-out  z-[9999999] ${
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >

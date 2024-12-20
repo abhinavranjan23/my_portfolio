@@ -42,10 +42,11 @@ const Navbar = () => {
             }`}
           >
             {navlist.map((nav, index) => (
-              <li className='relative group hover:scale-110  hover:text-gray-800 transition-all ease-in duration-300'>
-                <Link to={nav.link} key={index}>
-                  {nav.title}
-                </Link>
+              <li
+                className='relative group hover:scale-110  hover:text-gray-800 transition-all ease-in duration-300 '
+                key={index}
+              >
+                <Link to={nav.link}>{nav.title}</Link>
                 <span className='absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gray-700 group-hover:w-full transition-all duration-300'></span>
               </li>
             ))}
