@@ -8,6 +8,7 @@ import NightModeContext from "./utils/NightModeContext";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -18,6 +19,7 @@ const App = () => {
       <NightModeContext.Provider value={{ nightMode, setNightMode }}>
         <Navbar />
         <Outlet />
+        <Footer />
       </NightModeContext.Provider>
     </div>
   );

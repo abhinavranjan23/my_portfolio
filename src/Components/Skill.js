@@ -11,22 +11,22 @@ import python from "../images/python (2).png";
 import tailwind from "../images/tailwind (2).png";
 
 const skills = [
-  { src: react, name: "React" },
-  { src: express, name: "Express" },
-  { src: mongodb, name: "MongoDB" },
-  { src: nodejs, name: "Node.js" },
-  { src: javascript, name: "JavaScript" },
-  { src: git, name: "Git" },
-  { src: github, name: "GitHub" },
-  { src: tailwind, name: "Tailwind CSS" },
-  { src: php, name: "PHP" },
-  { src: python, name: "Python" },
-  { src: java, name: "Java" },
+  { src: react, name: "React", color: "blue-500", width: "80%" },
+  { src: express, name: "Express", color: "red-400", width: "20%" },
+  { src: mongodb, name: "MongoDB", color: "green-500", width: "10%" },
+  { src: nodejs, name: "Node.js", color: "yellow-500", width: "30%" },
+  { src: javascript, name: "JavaScript", color: "pink-500", width: "90%" },
+  { src: git, name: "Git", color: "white", width: "80%" },
+  { src: github, name: "GitHub", color: "orange-500", width: "80%" },
+  { src: tailwind, name: "Tailwind CSS", color: "blue-500", width: "70%" },
+  { src: php, name: "PHP", color: "red-300", width: "80%" },
+  { src: python, name: "Python", color: "green-300", width: "55%" },
+  { src: java, name: "Java", color: "red-300", width: "60%" },
 ];
 
 const Skill = () => {
   return (
-    <div className='box-border flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-20 p-6 md:w-[180vh] bg-opacity-85 backdrop-blur-lg bg-slate-500 md:ml-16 backdrop-saturate-150  group mx-4 rounded-lg'>
+    <div className='box-border flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-20 p-6 md:w-[180vh] bg-opacity-85 backdrop-blur-lg bg-slate-500 md:ml-16 backdrop-saturate-150  group mx-4 rounded-lg mb-10'>
       {/* Left Content */}
       <div className='flex flex-1 md:flex-none lg:text-center text-center md:mt-[9%] bg-emerald-500 mb-4 md:ml-40 shadow-md group-hover:shadow-slate-200 rounded-md p-2  shadow-neutral-800 group-hover:scale-110'>
         <span className='text-3xl font-bold'>My Skills</span>
@@ -36,6 +36,7 @@ const Skill = () => {
       <div className='flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-9 justify-center items-center'>
         {skills.map((skill, index) => (
           <div
+            data-popover-target={`popover-default-${skill.name}`}
             key={index}
             className='flex flex-col items-center justify-center w-[120px] h-[60px] bg-white rounded-md shadow-md border hover:shadow-lg hover:shadow-blue-400 transition-all duration-300 hover:-translate-y-3 bg-opacity-85 backdrop-blur-lg backdrop-saturate-150 group-hover:scale-110 '
           >
@@ -50,6 +51,31 @@ const Skill = () => {
           </div>
         ))}
       </div>
+      {skills.map((skill, index) => (
+        <div
+          data-popover
+          id={`popover-default-${skill.name}`}
+          role='tooltip'
+          class='absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800'
+        >
+          <div class='px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700'>
+            <h3 class='font-semibold text-gray-900 dark:text-white'>
+              {`${skill.name}`}
+            </h3>
+          </div>
+          <div class='px-3 py-2'>
+            <div
+              class={`w-full bg-${skill.color} rounded-full h-2.5 mb-4 dark:bg-gray-700 `}
+            >
+              <div
+                class={`bg-${skill.color} h-2.5 rounded-full `}
+                style={{ width: `${skill.width}` }}
+              ></div>
+            </div>
+          </div>
+          <div data-popper-arrow></div>
+        </div>
+      ))}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import "../App.css";
 import NightModeContext from "../utils/NightModeContext";
 import Mycv from "../assests/cv/examplecv.pdf";
 import Skill from "./Skill";
+import { TypeAnimation } from "react-type-animation";
 
 const Body = () => {
   const skill = useRef();
@@ -33,17 +34,35 @@ const Body = () => {
             nightMode ? "bg-black text-white" : ""
           }`}
         >
-          <span className='font-bold text-lg md:text-xl'> Hi !</span>
-          <p className='font-bold text-3xl md:text-5xl'>
-            I'm <span className='text-orange-400'>Abhinav</span>
+          <p className=' '>
+            {" "}
+            <span className='font-bold text-lg md:text-xl'> Hi !</span>
+            <p className='font-bold text-3xl md:text-5xl'>
+              I'm <span className='text-orange-400'>Abhinav</span>
+            </p>
+            <p className='font-bold text-5xl mb-3'>
+              a{" "}
+              <span className='bg-gradient-to-r from-green-900 via-cyan-400 to-yellow-400 text-transparent bg-clip-text '>
+                <TypeAnimation
+                  sequence={[
+                    "MERN Stack Devloper",
+                    1000,
+                    "Full-Stack Developer",
+                    1000,
+                    "Web Developer",
+                    1000,
+                    "Programmer",
+                    1000,
+                  ]}
+                  wrapper='span'
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </span>
+            </p>
           </p>
-          <p className='font-bold text-5xl mb-3'>
-            a{" "}
-            <span className='bg-gradient-to-r from-green-900 via-cyan-400 to-yellow-400 text-transparent bg-clip-text'>
-              MERN Stack Developer
-            </span>
-          </p>
-          <p className='text-pretty text-base md:font-normal font-light'>
+
+          <p className='text-pretty text-base md:font-normal font-light '>
             with a passion for creating robust, user-friendly web applications.
             I specialize in building full-stack solutions using MongoDB,
             Express.js, React.js, and Node.js. I aim to turn ideas into
@@ -52,7 +71,7 @@ const Body = () => {
           </p>
           <button
             type='button'
-            className='mt-4 px-4 py-3 bg-teal-400 rounded-md text-white shadow-lg transform active:scale-x-75 transition-transform mx-5 flex items-center'
+            className='mt-4 px-5 py-3 bg-teal-400 rounded-md text-white shadow-lg transform active:scale-x-75 transition-transform mx-5 flex items-center animate-bounce'
             onClick={() => {
               const link = document.createElement("a");
               link.href = Mycv;
