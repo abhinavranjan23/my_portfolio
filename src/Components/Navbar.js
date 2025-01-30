@@ -5,13 +5,14 @@ import NightModeContext from "../utils/NightModeContext";
 import { DARK_MODE, LIGHT_MODE } from "../urlpath/themeicon";
 import navlist from "../utils/navlist";
 import Sidebar from "./Sidebar";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { nightMode, setNightMode } = useContext(NightModeContext);
+  const location = useLocation();
 
   const handleHamBurger = () => {
-    setIsMenuOpen(true);
+    setIsMenuOpen(!isMenuOpen);
   };
   const handleNightMode = () => {
     setNightMode(!nightMode);
@@ -37,13 +38,17 @@ const Navbar = () => {
         </div>
         <div className='flex items-center'>
           <ul
-            className={`hidden  lg:flex items-center gap-x-20 mr-40 text-lg font-mono hover:cursor-pointer ${
-              !nightMode ? "text-gray-600" : "text-white"
-            }`}
+            className={`hidden  lg:flex items-center gap-x-20 mr-40 text-lg font-mono hover:cursor-pointer`}
           >
             {navlist.map((nav, index) => (
               <li
-                className='relative group hover:scale-110  hover:text-gray-800 transition-all ease-in duration-300 '
+                className={`relative group hover:scale-110  hover:text-gray-800 transition-all ease-in duration-300 ${
+                  location.pathname === nav.link
+                    ? "text-teal-300"
+                    : !nightMode
+                    ? "text-gray-600"
+                    : "text-white"
+                } `}
                 key={index}
               >
                 <Link to={nav.link}>{nav.title}</Link>

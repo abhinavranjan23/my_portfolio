@@ -1,4 +1,4 @@
 import { createContext } from "react";
 
-const NightModeContext = createContext(false);
+const NightModeContext = createContext();
 export default NightModeContext;
