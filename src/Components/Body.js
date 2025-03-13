@@ -5,6 +5,7 @@ import NightModeContext from "../utils/NightModeContext";
 import Mycv from "../assests/cv/examplecv.pdf";
 import Skill from "./Skill";
 import { TypeAnimation } from "react-type-animation";
+import Education from "./Education";
 
 const Body = () => {
   const skill = useRef();
@@ -27,6 +28,7 @@ const Body = () => {
   const backToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (enteries) => {
@@ -178,6 +180,7 @@ const Body = () => {
         >
           <Skill />
         </div>
+        <Education />
       </div>
     </div>
   );
