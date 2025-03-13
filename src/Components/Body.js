@@ -73,7 +73,7 @@ const Body = () => {
           </svg>
         </span>
       </button>
-      <div className={`${!nightMode ? "" : "bg-black"} flex flex-col`}>
+      <div className={`${!nightMode ? "" : "bg-gray-900"} flex flex-col`}>
         <div
           className={`flex flex-col md:grid grid-cols-2 items-center md:h-[100vh]  ${
             !nightMode ? "text-black" : "text-white"
@@ -81,7 +81,7 @@ const Body = () => {
         >
           <div
             className={`pt-24 px-4 md:pt-52 md:px-20 ${
-              nightMode ? "bg-black text-white" : ""
+              nightMode ? "bg-gray-900 text-white" : ""
             }`}
           >
             <div>

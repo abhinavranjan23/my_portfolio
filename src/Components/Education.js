@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import NightModeContext from "../utils/NightModeContext";
 
 const educationData = [
@@ -63,6 +64,7 @@ const Education = () => {
 
       {/* Education Timeline */}
       <div className='relative mt-16 mx-auto w-11/12 md:w-2/3'>
+        {/* Vertical Line */}
         <div
           className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full transition-all ${
             nightMode ? "bg-gray-500" : "bg-white"
@@ -70,11 +72,18 @@ const Education = () => {
         ></div>
 
         {educationData.map((edu, index) => (
-          <div
+          <motion.div
             key={index}
             className={`relative flex items-center mb-12 ${
               index % 2 === 0 ? "justify-start" : "justify-end"
             } flex-col md:flex-row`}
+            initial={{ opacity: 0, y: 50 }} // Start hidden & lower
+            whileInView={{ opacity: 1, y: 0 }} // Animate when in view
+            transition={{
+              duration: 0.8,
+              delay: index * 0.3, // Delay for each item
+            }}
+            viewport={{ once: true }} // Runs animation only once
           >
             {/* Timeline Dot */}
             <div
@@ -86,7 +95,7 @@ const Education = () => {
             ></div>
 
             {/* Card */}
-            <div
+            <motion.div
               className={`p-6 rounded-lg shadow-xl w-11/12 sm:w-80 transition-transform duration-300 transform hover:scale-105 ${
                 nightMode ? "bg-gray-800 text-gray-300" : "bg-white text-black"
               } ${index % 2 === 0 ? "ml-10 md:ml-20" : "mr-10 md:mr-20"}`}
@@ -100,8 +109,8 @@ const Education = () => {
               </h2>
               <p className='text-gray-500'>{edu.year}</p>
               <p className='text-sm opacity-80'>{edu.description}</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
       </div>
     </div>

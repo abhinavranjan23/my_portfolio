@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import NightModeContext from "../utils/NightModeContext";
 
 const projectsData = [
   {
@@ -9,7 +10,7 @@ const projectsData = [
     description: "A Netflix clone integrated with GPT-based recommendations.",
     link: "https://github.com/taniyakamboj15/netflix-gpt",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWavC_NPBzwQ_gr3UC72Dvjb1-aGu1FcMCgQ&s", // Dummy image
+      "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
   },
   {
     title: "Swiggy Clone",
@@ -17,104 +18,174 @@ const projectsData = [
       "A food ordering web app replicating Swiggy’s UI and functionality.",
     link: "https://github.com/yourgithub/swiggy-clone",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWavC_NPBzwQ_gr3UC72Dvjb1-aGu1FcMCgQ&s",
+      "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
   },
   {
-    title: "Stock Price Prediction & Portfolio Optimizer",
-    description:
-      "Predict stock prices and optimize your portfolio using ML and D3.js.",
-    link: "#",
+    title: "Dev Tinder",
+    description: "A Tinder-like app for developers.",
+    link: "https://github.com/yourgithub/dev-tinder",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWavC_NPBzwQ_gr3UC72Dvjb1-aGu1FcMCgQ&s",
+      "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
   },
   {
-    title: "AI-Based Fake Product Review Detection",
-    description: "Detect fake reviews using NLP and Graph Theory.",
-    link: "#",
+    title: "Climate Connect",
+    description: "A climate awareness app to track global warming trends.",
+    link: "https://github.com/yourgithub/climate-connect",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWavC_NPBzwQ_gr3UC72Dvjb1-aGu1FcMCgQ&s",
-  },
-  {
-    title: "Smart Traffic & Route Optimization",
-    description: "Real-time traffic updates and route optimization with ML.",
-    link: "#",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWavC_NPBzwQ_gr3UC72Dvjb1-aGu1FcMCgQ&s",
-  },
-  {
-    title: "Competitive Programming Dashboard",
-    description:
-      "Live contests, leaderboards, and problem tracking for CP enthusiasts.",
-    link: "#",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWavC_NPBzwQ_gr3UC72Dvjb1-aGu1FcMCgQ&s",
+      "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
   },
 ];
 
 const Projects = () => {
+  const { nightMode } = useContext(NightModeContext);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    AOS.refreshHard();
+  }, [nightMode]);
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  // Track Mouse Movement (Fix for Scrolling Issue)
+  const handleMouseMove = (e) => {
+    setMousePosition({ x: e.pageX, y: e.pageY });
+  };
+
   return (
-    <div className='mt-40 px-10 relative'>
+    <div
+      className={`relative pt-20 md:pt-28 px-6 md:px-10 pb-10 transition-colors duration-500 overflow-hidden ${
+        nightMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+      }`}
+      onMouseMove={handleMouseMove}
+    >
+      {/* Improved Glow Background Effect */}
+      <div
+        className='absolute inset-0 pointer-events-none transition-all duration-500'
+        style={{
+          background: `radial-gradient(300px at ${mousePosition.x}px ${
+            mousePosition.y
+          }px, 
+            ${
+              hovered ? "rgba(0, 204, 255, 0.5)" : "rgba(0, 204, 255, 0.2)"
+            } 10%, transparent 60%)`,
+          filter: "blur(50px)",
+          opacity: hovered ? 0.9 : 0.5,
+        }}
+      ></div>
+
+      {/* Section Title */}
       <motion.h1
-        className='text-3xl font-bold mb-6 text-center'
+        className='text-4xl font-extrabold mb-6 text-center'
         data-aos='fade-up'
       >
-        My Projects
+        🚀 My Projects
       </motion.h1>
 
-      {/* Project Grid */}
-      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <p
+        className='text-lg text-center text-gray-600 dark:text-gray-300 mb-10'
+        data-aos='fade-up'
+        data-aos-delay='200'
+      >
+        Here are some of the cool projects I’ve built! 👇
+      </p>
+
+      {/* Projects List */}
+      <div className='relative flex flex-col items-center'>
         {projectsData.map((project, index) => (
           <motion.div
             key={index}
-            className='bg-gray-800 text-white p-5 rounded-lg shadow-lg cursor-pointer relative'
+            className={`relative w-2/5 p-5 rounded-xl shadow-lg cursor-pointer transition-all duration-300  
+              ${
+                nightMode
+                  ? "bg-gray-800 border border-gray-600"
+                  : "bg-white border border-gray-300"
+              } 
+              ${index % 2 === 0 ? "self-start" : "self-end"} 
+              ${index < projectsData.length - 1 ? "mb-16" : ""}`}
             data-aos='fade-up'
             whileHover={{ scale: 1.05 }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
             onClick={() => setSelectedProject(project)}
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className='w-full h-40 object-cover rounded-lg mb-4'
-            />
-            <h2 className='text-xl font-semibold'>{project.title}</h2>
+            {/* Card Glow Effect */}
+            <div
+              className='absolute inset-0 rounded-xl pointer-events-none transition-all duration-500'
+              style={{
+                background: hovered
+                  ? "radial-gradient(circle, rgba(0, 204, 255, 0.4) 40%, transparent 80%)"
+                  : "transparent",
+                filter: hovered ? "blur(20px)" : "none",
+                opacity: hovered ? 0.8 : 0.5,
+              }}
+            ></div>
+
+            <div className='relative'>
+              <img
+                src={project.image}
+                alt={project.title}
+                className='w-full h-52 object-cover rounded-lg'
+              />
+              <div className='absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 flex justify-center items-center transition-opacity duration-300'>
+                <p className='text-white text-lg font-semibold'>View Details</p>
+              </div>
+            </div>
+            <h2 className='text-xl font-bold mt-4'>{project.title}</h2>
           </motion.div>
         ))}
       </div>
 
       {/* Modal Popover */}
-      {selectedProject && (
-        <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50'>
-          <div className='bg-gray-900 text-white p-6 rounded-lg w-96 shadow-xl relative'>
-            <button
-              className='absolute top-3 right-3 text-white text-xl'
-              onClick={() => setSelectedProject(null)}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex justify-center items-center z-50'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className={`p-6 rounded-lg w-96 shadow-xl relative ${
+                nightMode
+                  ? "bg-gray-800 border border-gray-700"
+                  : "bg-white border border-gray-300"
+              }`}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              ✖
-            </button>
-            <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              className='w-full h-40 object-cover rounded-lg mb-4'
-            />
-            <h2 className='text-2xl font-bold'>{selectedProject.title}</h2>
-            <p className='text-gray-300 mt-2'>{selectedProject.description}</p>
-            <a
-              href={selectedProject.link}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-blue-400 hover:text-blue-300 mt-3 inline-block'
-            >
-              View Project →
-            </a>
-          </div>
-        </div>
-      )}
+              <button
+                className='absolute top-3 right-3 text-xl'
+                onClick={() => setSelectedProject(null)}
+              >
+                ✖
+              </button>
+
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className='w-full h-40 object-cover rounded-lg mb-4'
+              />
+              <h2 className='text-2xl font-bold'>{selectedProject.title}</h2>
+              <p className='mt-2'>{selectedProject.description}</p>
+
+              <a
+                href={selectedProject.link}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='inline-block mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-md transition-all duration-300'
+              >
+                View Project →
+              </a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

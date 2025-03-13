@@ -21,21 +21,23 @@ const Navbar = () => {
     <div className='relative'>
       <div
         className={`box-border fixed top-0 w-full shadow-lg shadow-gray-500 h-16 sm:h-24 flex justify-between items-center pr-3 sm:pr-10 lg:pr-32 bg-opacity-70  backdrop-blur-lg backdrop-saturate-150 z-[99999] ${
-          nightMode ? "bg-black" : "bg-white"
+          nightMode ? "bg-gray-950" : "bg-white"
         }`}
       >
-        <div>
-          {" "}
-          <img
-            src={require("../logo.png")}
-            alt='Logo'
-            className={`h-12 sm:h-20 lg:ml-40 mr-auto transition-shadow duration-300 filter ${
-              !nightMode
-                ? "drop-shadow-md"
-                : "drop-shadow-[2px_2px_2px_rgba(255,255,255,1)]"
-            }`}
-          />
-        </div>
+        <Link to='/'>
+          <div>
+            {" "}
+            <img
+              src={require("../logo.png")}
+              alt='Logo'
+              className={`h-12 sm:h-20 lg:ml-40 mr-auto transition-shadow duration-300 filter ${
+                !nightMode
+                  ? "drop-shadow-md"
+                  : "drop-shadow-[2px_2px_2px_rgba(255,255,255,1)]"
+              }`}
+            />
+          </div>
+        </Link>
         <div className='flex items-center'>
           <ul
             className={`hidden  lg:flex items-center gap-x-20 mr-40 text-lg font-mono hover:cursor-pointer`}
@@ -44,7 +46,7 @@ const Navbar = () => {
               <li
                 className={`relative group hover:scale-110  hover:text-gray-800 transition-all ease-in duration-300 ${
                   location.pathname === nav.link
-                    ? "text-teal-300"
+                    ? "text-teal-400"
                     : !nightMode
                     ? "text-gray-600"
                     : "text-white"

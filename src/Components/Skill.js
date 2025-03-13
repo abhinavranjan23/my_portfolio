@@ -9,6 +9,8 @@ import nodejs from "../images/nodejs.png";
 import php from "../images/php (2).png";
 import python from "../images/python (2).png";
 import tailwind from "../images/tailwind (2).png";
+import { useContext } from "react";
+import NightModeContext from "../utils/NightModeContext";
 
 const skills = [
   { src: react, name: "React", color: "blue-500", width: "80%" },
@@ -25,10 +27,19 @@ const skills = [
 ];
 
 const Skill = () => {
+  const { nightMode } = useContext(NightModeContext);
   return (
-    <div className='box-border flex flex-col lg:flex-row items-center justify-center  lg:items-start  gap-10 lg:gap-20 p-6 sm:w-[90vw] lg:w-[90vw] bg-opacity-85 backdrop-blur-lg bg-slate-500 lg:mx-16 backdrop-saturate-150  group mx-4 rounded-lg mb-10'>
+    <div
+      className={`box-border flex flex-col lg:flex-row items-center justify-center  lg:items-start  gap-10 lg:gap-20 p-6 sm:w-[90vw] lg:w-[90vw] bg-opacity-85 backdrop-blur-lg ${
+        nightMode ? "bg-slate-700 " : "bg-slate-500"
+      } lg:mx-16 backdrop-saturate-150  group mx-4 rounded-lg mb-10`}
+    >
       {/* Left Content */}
-      <div className='flex flex-1 md:flex-none sm:text-center items-center justify-center  bg-emerald-500 mb-4  shadow-md group-hover:shadow-slate-200 rounded-md p-2  shadow-neutral-800 group-hover:scale-110 lg:mt-[100px]'>
+      <div
+        className={`flex flex-1 md:flex-none sm:text-center items-center justify-center  ${
+          nightMode ? "bg-emerald-700" : "bg-emerald-500"
+        } mb-4  shadow-md group-hover:shadow-slate-200 rounded-md p-2  shadow-neutral-800 group-hover:scale-110 lg:mt-[100px]`}
+      >
         <p className='text-3xl font-bold text-center'>My Skills</p>
       </div>
 
@@ -38,16 +49,18 @@ const Skill = () => {
           <div
             data-popover-target={`popover-default-${skill.name}`}
             key={index}
-            className='flex flex-col items-center justify-center w-[120px] h-[60px] bg-white rounded-md shadow-md border hover:shadow-lg hover:shadow-blue-400 transition-all duration-300 hover:-translate-y-3 bg-opacity-85 backdrop-blur-lg backdrop-saturate-150 group-hover:scale-110 '
+            className={`flex flex-col items-center justify-center w-[120px] h-[60px] ${
+              nightMode
+                ? "bg-gray-700 text-gray-300 border-gray-200"
+                : "bg-white text-gray-800  border-gray-800"
+            } rounded-md shadow-md border hover:shadow-lg hover:shadow-blue-400 transition-all duration-300 hover:-translate-y-3 bg-opacity-85 backdrop-blur-lg backdrop-saturate-150 group-hover:scale-110 `}
           >
             <img
               src={skill.src}
               className='w-8 h-8 object-contain mb-1'
               alt={`${skill.name} logo`}
             />
-            <span className='text-sm font-medium text-gray-700'>
-              {skill.name}
-            </span>
+            <span className='text-sm font-medium '>{skill.name}</span>
           </div>
         ))}
       </div>

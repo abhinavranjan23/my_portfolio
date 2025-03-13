@@ -1,11 +1,20 @@
+import { useContext } from "react";
+import NightModeContext from "../utils/NightModeContext";
+
 const Footer = () => {
+  const { nightMode } = useContext(NightModeContext);
   return (
-    <footer className='flex flex-col items-center bg-slate-200 text-center text-neutral-600 '>
+    <footer
+      className={`flex flex-col items-center bottom-0 ${
+        nightMode ? "bg-slate-700" : "bg-slate-200"
+      } text-center text-neutral-600 `}
+    >
       <div className='container px-6 pt-6'>
         <div className='mb-6 flex justify-center space-x-2'>
           <a
             href='#!'
             type='button'
+            rel='noopener noreferrer'
             className='rounded-full bg-[#3b5998] p-3 uppercase leading-normal text-white shadow-dark-3 shadow-black/30 transition duration-150 ease-in-out hover:shadow-dark-1 focus:shadow-dark-1 focus:outline-none focus:ring-0 active:shadow-1 dark:text-white'
             data-twe-ripple-init
             data-twe-ripple-color='light'
@@ -24,6 +33,7 @@ const Footer = () => {
           <a
             href='#!'
             type='button'
+            rel='noopener noreferrer'
             className='rounded-full bg-[#55acee] p-3 uppercase leading-normal text-white shadow-dark-3 shadow-black/30 transition duration-150 ease-in-out hover:shadow-dark-1 focus:shadow-dark-1 focus:outline-none focus:ring-0 active:shadow-1 dark:text-white'
             data-twe-ripple-init
             data-twe-ripple-color='light'
@@ -42,6 +52,7 @@ const Footer = () => {
           <a
             href='#!'
             type='button'
+            rel='noopener noreferrer'
             className='rounded-full bg-[#dd4b39] p-3 uppercase leading-normal text-white shadow-dark-3 shadow-black/30 transition duration-150 ease-in-out hover:shadow-dark-1 focus:shadow-dark-1 focus:outline-none focus:ring-0 active:shadow-1 dark:text-white'
             data-twe-ripple-init
             data-twe-ripple-color='light'
@@ -60,6 +71,7 @@ const Footer = () => {
           <a
             href='#!'
             type='button'
+            rel='noopener noreferrer'
             className='rounded-full bg-[#ac2bac] p-3 uppercase leading-normal text-white shadow-dark-3 shadow-black/30 transition duration-150 ease-in-out hover:shadow-dark-1 focus:shadow-dark-1 focus:outline-none focus:ring-0 active:shadow-1 dark:text-white'
             data-twe-ripple-init
             data-twe-ripple-color='light'
@@ -78,6 +90,7 @@ const Footer = () => {
           <a
             href='#!'
             type='button'
+            rel='noopener noreferrer'
             className='rounded-full bg-[#0082ca] p-3 uppercase leading-normal text-white shadow-dark-3 shadow-black/30 transition duration-150 ease-in-out hover:shadow-dark-1 focus:shadow-dark-1 focus:outline-none focus:ring-0 active:shadow-1 dark:text-white'
             data-twe-ripple-init
             data-twe-ripple-color='light'
@@ -96,6 +109,7 @@ const Footer = () => {
           <a
             href='#!'
             type='button'
+            rel='noopener noreferrer'
             className='rounded-full bg-[#333333] p-3 uppercase leading-normal text-white shadow-dark-3 shadow-black/30 transition duration-150 ease-in-out hover:shadow-dark-1 focus:shadow-dark-1 focus:outline-none focus:ring-0 active:shadow-1 dark:text-white'
             data-twe-ripple-init
             data-twe-ripple-color='light'
@@ -113,7 +127,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className='w-full bg-slate-400 p-4 text-center'>
+      <div
+        className={`w-full ${
+          nightMode ? "bg-slate-900 text-gray-200" : "bg-slate-400"
+        } p-4 text-center`}
+      >
         © 2024 Copyright:
         <a href='https://tw-elements.com/'>Abhinav Ranjan</a>
       </div>
