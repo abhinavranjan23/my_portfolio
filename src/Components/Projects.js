@@ -86,7 +86,9 @@ const Projects = () => {
       </motion.h1>
 
       <p
-        className='text-lg text-center text-gray-600 dark:text-gray-300 mb-10'
+        className={`text-lg text-center ${
+          nightMode ? "text-gray-300" : "text-gray-600"
+        } mb-10`}
         data-aos='fade-up'
         data-aos-delay='200'
       >
@@ -98,7 +100,7 @@ const Projects = () => {
         {projectsData.map((project, index) => (
           <motion.div
             key={index}
-            className={`relative w-2/5 p-5 rounded-xl shadow-lg cursor-pointer transition-all duration-300  
+            className={`relative w-4/5 md:w-2/5 p-5 rounded-xl shadow-lg cursor-pointer transition-all duration-300  
               ${
                 nightMode
                   ? "bg-gray-800 border border-gray-600"

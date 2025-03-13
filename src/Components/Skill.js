@@ -31,7 +31,9 @@ const Skill = () => {
   return (
     <div
       className={`box-border flex flex-col lg:flex-row items-center justify-center  lg:items-start  gap-10 lg:gap-20 p-6 sm:w-[90vw] lg:w-[90vw] bg-opacity-85 backdrop-blur-lg ${
-        nightMode ? "bg-slate-700 " : "bg-slate-500"
+        nightMode
+          ? "bg-gradient-to-r from-slate-700 to-slate-800"
+          : "bg-gradient-to-r from-teal-500 to-emerald-400"
       } lg:mx-16 backdrop-saturate-150  group mx-4 rounded-lg mb-10`}
     >
       {/* Left Content */}
@@ -60,7 +62,13 @@ const Skill = () => {
               className='w-8 h-8 object-contain mb-1'
               alt={`${skill.name} logo`}
             />
-            <span className='text-sm font-medium '>{skill.name}</span>
+            <span
+              className={`text-sm font-medium ${
+                nightMode ? "text-gray-200" : "text-gray-900"
+              }`}
+            >
+              {skill.name}
+            </span>
           </div>
         ))}
       </div>
