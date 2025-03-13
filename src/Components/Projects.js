@@ -8,7 +8,7 @@ const projectsData = [
   {
     title: "Netflix-GPT",
     description: "A Netflix clone integrated with GPT-based recommendations.",
-    link: "https://github.com/taniyakamboj15/netflix-gpt",
+    link: "https://abvideogp.web.app/",
     image:
       "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
   },
@@ -16,21 +16,21 @@ const projectsData = [
     title: "Swiggy Clone",
     description:
       "A food ordering web app replicating Swiggy’s UI and functionality.",
-    link: "https://github.com/yourgithub/swiggy-clone",
+    link: "https://github.com/abhinavranjan23/swiggy-clone",
     image:
       "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
   },
   {
     title: "Dev Tinder",
     description: "A Tinder-like app for developers.",
-    link: "https://github.com/yourgithub/dev-tinder",
+    link: "https://github.com/abhinavranjan/dev-tinder",
     image:
       "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
   },
   {
     title: "Climate Connect",
     description: "A climate awareness app to track global warming trends.",
-    link: "https://github.com/yourgithub/climate-connect",
+    link: "https://climateconnect-inc.web.app/",
     image:
       "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
   },
@@ -73,7 +73,7 @@ const Projects = () => {
               hovered ? "rgba(0, 204, 255, 0.5)" : "rgba(0, 204, 255, 0.2)"
             } 10%, transparent 60%)`,
           filter: "blur(50px)",
-          opacity: hovered ? 0.9 : 0.5,
+          opacity: hovered ? 0.7 : 0.5,
         }}
       ></div>
 

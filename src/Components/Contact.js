@@ -9,7 +9,7 @@ const ContactMe = () => {
 
   return (
     <div
-      className={`pt-24 md:pt-28  px-6 md:px-10 py-12 flex flex-col items-center justify-center h-[80vh] ${
+      className={`pt-28 md:pt-36  px-6 md:px-10 py-12 flex flex-col items-center justify-center h-[80vh] ${
         nightMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
       }`}
     >
