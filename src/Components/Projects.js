@@ -3,6 +3,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion, AnimatePresence } from "framer-motion";
 import NightModeContext from "../utils/NightModeContext";
+import Climatess from "../images/climate-ss.png";
+import Devtinderss from "../images/dev-tinder-ss.png";
+// import netflix-gpt-ss from "../images/netflix-gpt-ss.png";
+import Swiggyss from "../images/swiggy-ss.png";
 
 const projectsData = [
   {
@@ -17,22 +21,19 @@ const projectsData = [
     description:
       "A food ordering web app replicating Swiggy’s UI and functionality.",
     link: "https://github.com/abhinavranjan23/swiggy-clone",
-    image:
-      "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
+    image: Swiggyss,
   },
   {
     title: "Dev Tinder",
     description: "A Tinder-like app for developers.",
     link: "https://github.com/abhinavranjan/dev-tinder",
-    image:
-      "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
+    image: Devtinderss,
   },
   {
     title: "Climate Connect",
     description: "A climate awareness app to track global warming trends.",
     link: "https://climateconnect-inc.web.app/",
-    image:
-      "https://miro.medium.com/v2/resize:fit:1400/1*Z4T8ZeuOmCoEZFnvWwjyyA.png",
+    image: Climatess,
   },
 ];
 
@@ -100,7 +101,7 @@ const Projects = () => {
         {projectsData.map((project, index) => (
           <motion.div
             key={index}
-            className={`relative w-4/5 md:w-2/5 p-5 rounded-xl shadow-lg cursor-pointer transition-all duration-300  
+            className={`relative w-4/5 md:w-2/5 p-2 rounded-xl shadow-lg cursor-pointer transition-all duration-300  
               ${
                 nightMode
                   ? "bg-gray-800 border border-gray-600"
@@ -130,7 +131,7 @@ const Projects = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className='w-full h-52 object-cover rounded-lg'
+                className='w-full h-max object-cover rounded-lg'
               />
               <div className='absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 hover:opacity-100 flex justify-center items-center transition-opacity duration-300'>
                 <p className='text-white text-lg font-semibold'>View Details</p>
@@ -171,7 +172,7 @@ const Projects = () => {
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                className='w-full h-40 object-cover rounded-lg mb-4'
+                className='w-full h-max  rounded-lg mb-4'
               />
               <h2 className='text-2xl font-bold'>{selectedProject.title}</h2>
               <p className='mt-2'>{selectedProject.description}</p>

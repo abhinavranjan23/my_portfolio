@@ -2,7 +2,7 @@ import { useContext, useState, useEffect, useRef } from "react";
 import Myimage from "../images/MyPhoto.jpg";
 import "../App.css";
 import NightModeContext from "../utils/NightModeContext";
-import Mycv from "../assests/cv/examplecv.pdf";
+import Mycv from "../assests/cv/ABHINAV RANJAN-Resume.pdf";
 import Skill from "./Skill";
 import { TypeAnimation } from "react-type-animation";
 import Education from "./Education";
@@ -171,10 +171,10 @@ const Body = () => {
         </div>
 
         <div
-          className={`mt-10 transform transition-all duration-[3s]  ${
+          className={`mt-10 transform transition-all duration-[2s]  ${
             skillIsVisible
-              ? "  opacity-100 translate-x-0"
-              : "  opacity-0 translate-x-20"
+              ? "  opacity-100 scale-100  "
+              : "  opacity-0  scale-50"
           } `}
           ref={skill}
         >

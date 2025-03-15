@@ -30,10 +30,10 @@ const Skill = () => {
   const { nightMode } = useContext(NightModeContext);
   return (
     <div
-      className={`box-border flex flex-col lg:flex-row items-center justify-center  lg:items-start  gap-10 lg:gap-20 p-6 sm:w-[90vw] lg:w-[90vw] bg-opacity-85 backdrop-blur-lg ${
+      className={`box-border flex flex-col lg:flex-row items-center justify-center  lg:items-start  gap-10 lg:gap-20 p-6 sm:w-[90vw] lg:w-[90vw] bg-opacity-85 backdrop-blur-lg shadow-xl shadow-cyan-200 drop-shadow-md ${
         nightMode
           ? "bg-gradient-to-r from-slate-700 to-slate-800"
-          : "bg-gradient-to-r from-teal-500 to-emerald-400"
+          : "bg-gradient-to-r bg-teal-400 to-emerald-400"
       } lg:mx-16 backdrop-saturate-150  group mx-4 rounded-lg mb-10`}
     >
       {/* Left Content */}
