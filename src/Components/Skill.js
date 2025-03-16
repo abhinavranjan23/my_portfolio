@@ -35,6 +35,7 @@ const Skill = () => {
 
   // Intersection Observer to detect when the skill section is visible
   useEffect(() => {
+    const skill = skillRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -44,13 +45,13 @@ const Skill = () => {
       { threshold: 0.3 }
     );
 
-    if (skillRef.current) {
-      observer.observe(skillRef.current);
+    if (skill) {
+      observer.observe(skill);
     }
 
     return () => {
-      if (skillRef.current) {
-        observer.unobserve(skillRef.current);
+      if (skill) {
+        observer.unobserve(skill);
       }
     };
   }, []);
@@ -68,7 +69,7 @@ const Skill = () => {
   return (
     <div
       ref={skillRef}
-      className={`box-border flex flex-col lg:flex-row items-center justify-center  lg:items-start  gap-10 lg:gap-20 p-6 sm:w-[90vw] lg:w-[90vw] bg-opacity-85 backdrop-blur-lg shadow-xl shadow-cyan-200 drop-shadow-md ${
+      className={`box-border flex flex-col lg:flex-row items-center justify-center  lg:items-start  gap-10 lg:gap-20 p-6 sm:w-[90vw] lg:w-[90vw] bg-opacity-85 backdrop-blur-lg shadow-lg md:shadow-xl shadow-cyan-200 drop-shadow-md ${
         nightMode
           ? "bg-gradient-to-r from-slate-700 to-slate-800"
           : "bg-gradient-to-r bg-teal-400 to-emerald-400"
@@ -96,7 +97,7 @@ const Skill = () => {
               nightMode
                 ? "bg-gray-700 text-gray-300 border-gray-200"
                 : "bg-white text-gray-800 border-gray-800"
-            } rounded-md shadow-md border hover:shadow-lg hover:shadow-blue-400 hover:-translate-y-3 bg-opacity-85 backdrop-blur-lg backdrop-saturate-150 group-hover:scale-110`}
+            } rounded-md shadow-md border hover:shadow-lg hover:shadow-blue-400 hover:-translate-y-3 bg-opacity-85 backdrop-blur-lg backdrop-saturate-150 md:group-hover:scale-110`}
           >
             <img
               src={skill.src}

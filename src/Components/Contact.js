@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import NightModeContext from "../utils/NightModeContext";
 import { motion } from "framer-motion";
-import { FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import MyProfile from "../images/my-profile.jpg";
 
 const ContactMe = () => {
@@ -9,7 +9,7 @@ const ContactMe = () => {
 
   return (
     <div
-      className={`pt-28 md:pt-36  px-6 md:px-10 py-12 flex flex-col items-center justify-center h-[80vh] ${
+      className={`pt-28 md:pt-36  px-6 md:px-10 py-12  flex flex-col items-center justify-center md:h-[80vh] ${
         nightMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
       }`}
     >
@@ -64,6 +64,19 @@ const ContactMe = () => {
         >
           <FaPhone className='text-xl' />
           <span>+91 93686 33714</span>
+        </motion.a>
+        <motion.a
+          href='https://wa.me/916203926247'
+          className='flex items-center space-x-3 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 shadow-md'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          style={{
+            background: nightMode ? "#34D399" : "#10B981",
+          }}
+        >
+          <FaWhatsapp className='text-xl' />
+          <span>Chat on WhatsApp</span>
         </motion.a>
 
         {/* Email */}
