@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <div className='relative'>
       <div
-        className={`box-border fixed top-0 w-full shadow-lg shadow-gray-500 h-16 sm:h-24 flex justify-between items-center pr-3 sm:pr-10 lg:pr-32 bg-opacity-70  backdrop-blur-lg backdrop-saturate-150 z-[99999] ${
+        className={`box-border fixed top-0 w-full shadow-lg shadow-gray-500 h-16 sm:h-24 flex justify-between items-center pr-3 sm:pr-10 lg:pr-32 bg-opacity-70  backdrop-blur-lg backdrop-saturate-150 z-[99999] transition-colors duration-300 ${
           nightMode ? "bg-gray-950" : "bg-white"
         }`}
       >

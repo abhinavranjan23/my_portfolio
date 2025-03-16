@@ -4,8 +4,8 @@ import NightModeContext from "../utils/NightModeContext";
 
 const educationData = [
   {
-    institution: "Amity University",
-    year: "2025 - now",
+    institution: "Graphic University",
+    year: "2024 - now",
     description: "Master's in Computer Applications",
   },
   {
